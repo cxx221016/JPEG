@@ -1,0 +1,10 @@
+D:/MY_CODE/JPG/JPEG/build/CMakeFiles/APP0.dir
+D:/MY_CODE/JPG/JPEG/build/CMakeFiles/parsejpeg.dir
+D:/MY_CODE/JPG/JPEG/build/CMakeFiles/DQT.dir
+D:/MY_CODE/JPG/JPEG/build/CMakeFiles/SOF.dir
+D:/MY_CODE/JPG/JPEG/build/CMakeFiles/DHT.dir
+D:/MY_CODE/JPG/JPEG/build/CMakeFiles/SOS.dir
+D:/MY_CODE/JPG/JPEG/build/CMakeFiles/Serial.dir
+D:/MY_CODE/JPG/JPEG/build/CMakeFiles/main.dir
+D:/MY_CODE/JPG/JPEG/build/CMakeFiles/edit_cache.dir
+D:/MY_CODE/JPG/JPEG/build/CMakeFiles/rebuild_cache.dir

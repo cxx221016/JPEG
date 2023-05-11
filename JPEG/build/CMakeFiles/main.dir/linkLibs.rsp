@@ -1,0 +1,1 @@
+ D:/MY_CODE/JPG/JPEG/lib/libparsejpeg.a D:/MY_CODE/JPG/JPEG/lib/libAPP0.a D:/MY_CODE/JPG/JPEG/lib/libDQT.a D:/MY_CODE/JPG/JPEG/lib/libSOF.a D:/MY_CODE/JPG/JPEG/lib/libDHT.a D:/MY_CODE/JPG/JPEG/lib/libSOS.a D:/MY_CODE/JPG/JPEG/lib/libSerial.a -lws2_32 -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

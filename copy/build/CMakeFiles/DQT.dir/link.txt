@@ -1,0 +1,2 @@
+D:\CodeBlocks\MinGW\bin\ar.exe qc D:\MY_CODE\JPG\lib\libDQT.a CMakeFiles/DQT.dir/src/DQT.cpp.obj
+D:\CodeBlocks\MinGW\bin\ranlib.exe D:\MY_CODE\JPG\lib\libDQT.a

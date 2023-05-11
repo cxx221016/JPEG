@@ -1,0 +1,2 @@
+D:\CodeBlocks\MinGW\bin\ar.exe qc D:\MY_CODE\JPG\JPEG\lib\libAPP0.a CMakeFiles/APP0.dir/src/APP0.cpp.obj
+D:\CodeBlocks\MinGW\bin\ranlib.exe D:\MY_CODE\JPG\JPEG\lib\libAPP0.a
