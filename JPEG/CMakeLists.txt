@@ -20,4 +20,4 @@ add_library(Serial STATIC src/Serial.cpp)
 
 add_executable(main main.cpp)
 
-target_link_libraries(main parsejpeg APP0 DQT SOF DHT SOS Serial ws2_32)
+target_link_libraries(main parsejpeg APP0 DQT SOF DHT SOS Serial )

@@ -12,6 +12,15 @@
     - [SOF](#sof)
     - [DHT](#dht)
     - [SOS](#sos)
+    - [Serial](#serial)
+    - [JpegParser](#jpegparser)
+  - [UPDATA](#updata)
+    - [VERSION 1.0](#version-10)
+  - [CONFIG](#config)
+    - [request](#request)
+    - [config](#config-1)
+  - [summary](#summary)
+    - [2023 5.12](#2023-512)
 
 
 ## 摘要
@@ -135,3 +144,91 @@ struct SOS
     componentinfo* getcomponentinfos();
 };
 ```
+
+### Serial 
+
+```cpp
+struct Serial
+{
+    //inline static unsigned char key=0x64;
+    inline static const std::string path=std::string("../data/log.txt");
+    std::unordered_map<std::string,unsigned char> keymap;
+    unsigned char yhencode(std::fstream& fin,const std::string& filename);
+    unsigned char yhdecode(std::fstream& fin,const std::string& filename);
+};
+
+该模块可对照片进行随机加密，密钥存储与file下边的文件中
+```
+
+### JpegParser
+
+```cpp
+class JpegParser
+{
+private:
+    std::shared_ptr<APP0> app0;
+    std::vector<std::shared_ptr<DQT>> dqts;
+    std::vector<std::shared_ptr<SOF>> sofs;
+    std::vector<std::shared_ptr<DHT>> dhts;
+    std::shared_ptr<SOS> sos;
+    std::fstream fin;
+    bool flag;
+    std::string filename;
+public:
+    bool Parser();
+    static bool isjpeg(std::fstream& fin);
+    std::shared_ptr<APP0> getapp0();
+    std::vector<std::shared_ptr<DQT>> getdqts();
+    std::vector<std::shared_ptr<SOF>> getsofs();
+    std::vector<std::shared_ptr<DHT>> getdhts();
+    std::shared_ptr<SOS> getsos();
+    bool encode();
+    bool decode();
+};
+```
+
+该模块负责解析jpeg文件，同时向用户提供各个接口
+
+## UPDATA
+
+### VERSION 1.0
+ 实现了一部分jpeg的解析，同时能够对文件加密
+
+## CONFIG
+
+### request
+
+> std=c++17
+
+### config
+
+* git clone git@github.com:cxx221016/JPEG.git
+* cd OS
+* for windows with mingw && cmake
+   * rd /S build
+   * md build
+   * cd build
+   * cmake -G cmake -G "MinGW Makefiles" ..
+   * mingw32-make
+   * cd ../bin
+   * main.exe
+* for windows with VS && cmake
+   * rd /S build
+   * md build
+   * cd build
+   * cmake ..
+   * find *.sln
+   * open *.sln
+* for linux with g++ && cmake
+   * rm -rf build
+   * mkdir build
+   * cd build
+   * cmake ..
+   * make 
+   * cd ../bin
+   * ./main
+
+## summary
+
+### 2023 5.12
+本程序本不需要依赖winsock或者linux，但是需要htons函数，目前打算自行实现

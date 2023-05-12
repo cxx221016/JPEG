@@ -9,13 +9,17 @@ DHT::DHT(std::fstream& fin)
     unsigned int tc=tc_th>>4;
     unsigned int th=tc_th&0x0F;
     tc=0;
-    unsigned int codesize=tc==0?16:256;
+    unsigned int codesize=16;
     bitvaluetable=new unsigned char[codesize];
+    //std::cout<<"codesize: "<<codesize<<std::endl;
     for(unsigned int i=0;i<codesize;++i)
     {
         fin.read(reinterpret_cast<char*>(&bitvaluetable[i]),sizeof(bitvaluetable[i]));
         tablesize+=bitvaluetable[i];
+        //std::cout<<printasnum(bitvaluetable[i])<<std::endl;
     }
+
+    //std::cout<<tablesize<<std::endl;
 
     huffmancode=new unsigned char[tablesize];
     fin.read(reinterpret_cast<char*>(huffmancode),tablesize);

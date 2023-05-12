@@ -37,9 +37,18 @@ unsigned char Serial::yhencode(std::fstream& fin,const std::string& filename)
     std::default_random_engine e(time(nullptr));
     std::uniform_int_distribution<int> u;
     unsigned char key=u(e)%(256-32)+32;
-    if(keymap.count(filename))  key=keymap[filename];
+    if(keymap.count(filename)) 
+    {
+        std::cout<<"may demage the jpg"<<std::endl;
+        std::string cmd;
+        std::cout<<"Continue decoding(yes/no)"<<std::endl;
+        std::cin>>cmd;
+        if(cmd!="yes")
+        {
+            return 0;
+        }
+    }
     keymap[filename]=key;
-    //std::cout<<printasnum(key)<<std::endl;
     unsigned char ch;
     int curidx=fin.tellg();
     fin.seekg(0,std::ios::end);
@@ -57,6 +66,7 @@ unsigned char Serial::yhencode(std::fstream& fin,const std::string& filename)
     }
     fin.seekg(curidx,std::ios::beg);
     fin.write(reinterpret_cast<char*>(filebuf),filesize);
+    fin.seekg(curidx,std::ios::beg);
     return key;
 }
 
@@ -87,6 +97,6 @@ unsigned char Serial::yhdecode(std::fstream& fin,const std::string& filename)
     }
     fin.seekg(curidx,std::ios::beg);
     fin.write(reinterpret_cast<char*>(filebuf),filesize);
-
+    fin.seekg(curidx,std::ios::beg);
     return key;
 }
